@@ -1,0 +1,1864 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khaoula Dah-Hou — Ausbildung als Erzieherin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.1.0/index.min.css">
+    <style>
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --warm-white: #FAF8F5;
+            --soft-beige: #E8DFD0;
+            --light-blue: #C4D8E4;
+            --muted-gray: #7A7A7A;
+            --dark-text: #2C2C2C;
+            --border-color: #E5E0D8;
+            --accent-blue: #8FB4C9;
+            --accent-beige: #D4C9B8;
+            --section-padding: 120px;
+            --container-max: 1200px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--dark-text);
+            background-color: var(--warm-white);
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        /* ============================================
+           TYPOGRAPHY
+           ============================================ */
+        .section-label {
+            font-size: 12px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted-gray);
+            font-weight: 500;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 500;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+            color: var(--dark-text);
+        }
+
+        .section-subtitle {
+            font-size: 17px;
+            color: var(--muted-gray);
+            line-height: 1.7;
+            max-width: 560px;
+        }
+
+        /* ============================================
+           CONTAINER
+           ============================================ */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ============================================
+           NAVBAR
+           ============================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 24px 0;
+            transition: all var(--transition);
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: rgba(250, 248, 245, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .navbar-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .navbar-brand {
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .navbar-links a {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--dark-text);
+            transition: color var(--transition);
+            position: relative;
+        }
+
+        .navbar-links a:hover {
+            color: var(--muted-gray);
+        }
+
+        .navbar-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--dark-text);
+            transition: width var(--transition);
+        }
+
+        .navbar-links a:hover::after {
+            width: 100%;
+        }
+
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 8px;
+        }
+
+        .navbar-toggle span {
+            display: block;
+            width: 22px;
+            height: 1.5px;
+            background: var(--dark-text);
+            transition: all var(--transition);
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 140px 0 var(--section-padding);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            aspect-ratio: 4 / 5;
+            overflow: hidden;
+            border-radius: 12px;
+            background: var(--soft-beige);
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hero-image-wrapper:hover img {
+            transform: scale(1.03);
+        }
+
+        .hero-image-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            padding: 20px 0;
+        }
+
+        .hero-label {
+            font-size: 12px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted-gray);
+            font-weight: 500;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-label::before {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 1px;
+            background: var(--muted-gray);
+        }
+
+        .hero-title {
+            font-size: 52px;
+            font-weight: 400;
+            line-height: 1.15;
+            letter-spacing: -0.025em;
+            margin-bottom: 32px;
+            color: var(--dark-text);
+        }
+
+        .hero-title em {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--accent-blue);
+        }
+
+        .hero-description {
+            font-size: 17px;
+            line-height: 1.7;
+            color: var(--muted-gray);
+            margin-bottom: 40px;
+            max-width: 480px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            border-radius: 8px;
+            transition: all var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--dark-text);
+            color: var(--warm-white);
+        }
+
+        .btn-primary:hover {
+            background: #1a1a1a;
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--dark-text);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--dark-text);
+            transform: translateY(-1px);
+        }
+
+        /* ============================================
+           ABOUT SECTION
+           ============================================ */
+        .about {
+            padding: var(--section-padding) 0;
+            background: var(--warm-white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .about-text p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--dark-text);
+            margin-bottom: 20px;
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .skill-card {
+            padding: 28px 24px;
+            background: var(--warm-white);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            transition: all var(--transition);
+        }
+
+        .skill-card:hover {
+            border-color: var(--accent-beige);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        .skill-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--soft-beige);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .skill-icon svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--dark-text);
+        }
+
+        .skill-card h4 {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: var(--dark-text);
+        }
+
+        .skill-card p {
+            font-size: 13px;
+            color: var(--muted-gray);
+            line-height: 1.5;
+        }
+
+        /* ============================================
+           GALLERY SECTION
+           ============================================ */
+        .gallery {
+            padding: var(--section-padding) 0;
+            background: #F5F1EC;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .gallery-header .section-subtitle {
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .gallery-card {
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 12px;
+            background: var(--warm-white);
+            transition: all var(--transition);
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .gallery-card-image {
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            background: var(--soft-beige);
+        }
+
+        .gallery-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-card:hover .gallery-card-image img {
+            transform: scale(1.08);
+        }
+
+        .gallery-card-content {
+            padding: 20px 24px;
+        }
+
+        .gallery-card-content h4 {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            color: var(--dark-text);
+        }
+
+        .gallery-card-content p {
+            font-size: 13px;
+            color: var(--muted-gray);
+        }
+
+        /* ============================================
+           VIDEO SECTION
+           ============================================ */
+        .video {
+            padding: var(--section-padding) 0;
+            background: var(--warm-white);
+        }
+
+        .video-header {
+            margin-bottom: 64px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .video-card {
+            position: relative;
+            aspect-ratio: 16 / 10;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--soft-beige);
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .video-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08);
+        }
+
+        .video-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .video-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .video-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background var(--transition);
+        }
+
+        .video-card:hover .video-card-overlay {
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%);
+        }
+
+        .play-button {
+            width: 72px;
+            height: 72px;
+            background: rgba(250, 248, 245, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition);
+            backdrop-filter: blur(8px);
+        }
+
+        .video-card:hover .play-button {
+            transform: scale(1.08);
+            background: rgba(250, 248, 245, 1);
+        }
+
+        .play-button svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--dark-text);
+            margin-left: 3px;
+        }
+
+        .video-card-label {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            color: var(--warm-white);
+            font-size: 14px;
+            font-weight: 500;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        /* ============================================
+           COMPETENCIES SECTION
+           ============================================ */
+        .competencies {
+            padding: var(--section-padding) 0;
+            background: #F5F1EC;
+        }
+
+        .competencies-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .competencies-header .section-subtitle {
+            margin: 0 auto;
+        }
+
+        .competencies-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .competency-card {
+            padding: 36px 28px;
+            background: var(--warm-white);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all var(--transition);
+        }
+
+        .competency-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.04);
+        }
+
+        .competency-number {
+            font-size: 12px;
+            color: var(--muted-gray);
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .competency-card h4 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--dark-text);
+            letter-spacing: -0.01em;
+        }
+
+        .competency-card p {
+            font-size: 14px;
+            line-height: 1.65;
+            color: var(--muted-gray);
+        }
+
+        /* ============================================
+           MOTIVATION SECTION
+           ============================================ */
+        .motivation {
+            padding: var(--section-padding) 0;
+            background: var(--warm-white);
+        }
+
+        .motivation-card {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 80px 72px;
+            background: linear-gradient(135deg, var(--soft-beige) 0%, #DDD4C4 100%);
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .motivation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+        }
+
+        .motivation-quote-mark {
+            font-size: 72px;
+            line-height: 1;
+            color: var(--accent-blue);
+            font-family: Georgia, serif;
+            margin-bottom: 16px;
+            opacity: 0.6;
+        }
+
+        .motivation-text {
+            font-size: 22px;
+            line-height: 1.7;
+            color: var(--dark-text);
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            margin-bottom: 32px;
+            font-style: italic;
+        }
+
+        .motivation-author {
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted-gray);
+            font-weight: 500;
+        }
+
+        /* ============================================
+           CONTACT SECTION
+           ============================================ */
+        .contact {
+            padding: var(--section-padding) 0;
+            background: #F5F1EC;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .contact-info-list {
+            list-style: none;
+            margin-top: 40px;
+        }
+
+        .contact-info-list li {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .contact-info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .contact-info-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--warm-white);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-info-icon svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--dark-text);
+        }
+
+        .contact-info-label {
+            font-size: 12px;
+            color: var(--muted-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 2px;
+        }
+
+        .contact-info-value {
+            font-size: 15px;
+            color: var(--dark-text);
+            font-weight: 500;
+        }
+
+        .contact-info-value a {
+            transition: color var(--transition);
+        }
+
+        .contact-info-value a:hover {
+            color: var(--accent-blue);
+        }
+
+        .contact-cta {
+            padding: 48px 40px;
+            background: var(--warm-white);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-cta h3 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .contact-cta p {
+            font-size: 15px;
+            color: var(--muted-gray);
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            padding: 40px 0;
+            background: var(--warm-white);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copy {
+            font-size: 13px;
+            color: var(--muted-gray);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+            color: var(--muted-gray);
+            transition: color var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--dark-text);
+        }
+
+        /* ============================================
+           LIGHTBOX
+           ============================================ */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: rgba(44, 44, 44, 0.92);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            background: rgba(250, 248, 245, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background var(--transition);
+        }
+
+        .lightbox-close:hover {
+            background: rgba(250, 248, 245, 0.2);
+        }
+
+        .lightbox-close svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--warm-white);
+        }
+
+        .lightbox-content {
+            max-width: 900px;
+            max-height: 80vh;
+            border-radius: 12px;
+            overflow: hidden;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox.active .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            max-height: 80vh;
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--warm-white);
+            font-size: 14px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 12px 24px;
+            border-radius: 8px;
+            backdrop-filter: blur(8px);
+        }
+
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-up-delay-1 { transition-delay: 0.1s; }
+        .fade-up-delay-2 { transition-delay: 0.2s; }
+        .fade-up-delay-3 { transition-delay: 0.3s; }
+        .fade-up-delay-4 { transition-delay: 0.4s; }
+
+        /* ============================================
+           RESPONSIVE — 1024px
+           ============================================ */
+        @media (max-width: 1024px) {
+            :root {
+                --section-padding: 96px;
+            }
+
+            .hero-title {
+                font-size: 44px;
+            }
+
+            .hero-grid,
+            .about-grid,
+            .contact-grid {
+                gap: 60px;
+            }
+
+            .competencies-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .motivation-card {
+                padding: 64px 48px;
+            }
+        }
+
+        /* ============================================
+           RESPONSIVE — 768px (Tablet)
+           ============================================ */
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 80px;
+            }
+
+            .container {
+                padding: 0 24px;
+            }
+
+            .navbar-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(250, 248, 245, 0.98);
+                backdrop-filter: blur(12px);
+                flex-direction: column;
+                padding: 24px 32px;
+                gap: 20px;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .navbar-links.open {
+                display: flex;
+            }
+
+            .navbar-toggle {
+                display: flex;
+            }
+
+            .hero {
+                padding: 120px 0 80px;
+                min-height: auto;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .hero-image-wrapper {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .competencies-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .motivation-card {
+                padding: 48px 28px;
+            }
+
+            .motivation-text {
+                font-size: 18px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+
+        /* ============================================
+           RESPONSIVE — 390px & 360px (Mobile)
+           ============================================ */
+        @media (max-width: 390px) {
+            :root {
+                --section-padding: 64px;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .navbar-inner {
+                padding: 0 20px;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+
+            .motivation-text {
+                font-size: 16px;
+            }
+
+            .motivation-card {
+                padding: 40px 24px;
+            }
+
+            .contact-cta {
+                padding: 32px 24px;
+            }
+
+            .lightbox {
+                padding: 20px;
+            }
+        }
+
+
+        /* ------------------- jdid ------------------------ */
+        /* حاوية الريل العمودية 9:16 */
+.about-video-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.reel-container {
+    position: relative;
+    width: 100%;
+    max-width: 310px; /* عرض طولي متناسق لجوال/ريل */
+    aspect-ratio: 9 / 16; /* أبعاد أسلوب الريلز الطولي */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    background-color: #000;
+    cursor: pointer;
+}
+
+/* صورة الغلاف */
+.reel-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.reel-container:hover .reel-poster {
+    transform: scale(1.03);
+}
+
+/* زر التشغيل */
+.play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65px;
+    height: 65px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.play-btn svg {
+    width: 28px;
+    height: 28px;
+    fill: #222;
+    margin-left: 3px; /* لموازنة شكل أداة التشغيل */
+}
+
+.reel-container:hover .play-btn {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: #ffffff;
+}
+
+/* iframe الفيديو بعد التشغيل */
+.reel-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* التجاوب مع الهواتف */
+@media (max-width: 768px) {
+    .reel-container {
+        max-width: 280px;
+    }
+}
+
+
+/* ------------------------------4 reels --------------------------- */
+/* شبكة عرض كروت الريلز 4 عناصر */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* تصميم كارت الريل الطولي */
+.reel-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 16; /* أبعاد أسلوب الريلز العمودية */
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: #000;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.reel-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.reel-card:hover .reel-poster {
+    transform: scale(1.04);
+}
+
+/* الطبقة الشفافة مع الأيقونة */
+.video-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.play-button {
+    width: 55px;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.play-button svg {
+    width: 22px;
+    height: 22px;
+    fill: #222;
+    margin-left: 3px;
+}
+
+.reel-card:hover .play-button {
+    transform: scale(1.1);
+    background: #ffffff;
+}
+
+/* عنوان الفيديو بالأسفل */
+.video-card-label {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* عنصر المشغل الداخلي */
+.reel-card iframe,
+.reel-card video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    object-fit: cover;
+    z-index: 3;
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         NAVBAR
+         ============================================ -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="#hero" class="navbar-brand">Khaoula Dah-Hou</a>
+            <ul class="navbar-links" id="navLinks">
+                <li><a href="#about">Über mich</a></li>
+                <li><a href="#gallery">Eindrücke</a></li>
+                <li><a href="#competencies">Kompetenzen</a></li>
+                <li><a href="#motivation">Motivation</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+            <button class="navbar-toggle" id="navToggle" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-image-wrapper fade-up">
+                    <img src="hero2.jpeg" alt="Khaoula Dah-Hou, angehende Erzieherin">
+                </div>
+                <div class="hero-content">
+                    <span class="hero-label fade-up">Ausbildung als Erzieherin</span>
+                    <h1 class="hero-title fade-up fade-up-delay-1">Mit Herz und Verantwortung Kinder begleiten</h1>
+                    <p class="hero-description fade-up fade-up-delay-2">
+                        Ich bin Khaoula. Für mich ist Bildung viel mehr als nur ein Beruf. Es macht mich glücklich, Kinder in ihrer Entwicklung zu fördern und sie auf ihrem Weg zu begleiten.
+                    </p>
+                    <div class="hero-buttons fade-up fade-up-delay-3">
+                        <a href="#contact" class="btn btn-primary">Kontakt aufnehmen</a>
+                        <a href="#about" class="btn btn-outline">Mehr erfahren</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ABOUT SECTION
+         ============================================ -->
+    <!-- <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text fade-up">
+                    <span class="section-label">Über mich</span>
+                    <h2 class="section-title">Eine Leidenschaft für die Arbeit mit Kindern</h2>
+                    <p>
+                        Schon während meiner Schulzeit machte es mir Freude, meinen Mitschülern beim Lernen zu helfen. Ihre Fortschritte zu sehen, motivierte mich und weckte mein Interesse an der pädagogischen Arbeit. Deshalb entschied ich mich nach dem Abitur für ein Studium der Erziehungswissenschaften. Durch mein Studium, Praktika an Schulen und meine Tätigkeit in der Lernförderung wurde mir klar, dass die Arbeit mit Kindern genau zu mir passt.
+                    </p>
+                    <p>
+                        Heute möchte ich diesen Weg mit einer Ausbildung als Erzieherin in Deutschland fortsetzen und Kinder mit Geduld, Engagement und Freude in ihrer Entwicklung begleiten.
+                    </p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-card fade-up fade-up-delay-1">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        </div>
+                        <h4>Einfühlungsvermögen</h4>
+                        <p>Die Welt aus der Perspektive der Kinder verstehen</p>
+                    </div>
+                    <div class="skill-card fade-up fade-up-delay-2">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <h4>Verantwortung</h4>
+                        <p>Zuverlässigkeit in jeder Situation</p>
+                    </div>
+                    <div class="skill-card fade-up fade-up-delay-3">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                        </div>
+                        <h4>Freude am Miteinander</h4>
+                        <p>Positive Atmosphäre schaffen</p>
+                    </div>
+                    <div class="skill-card fade-up fade-up-delay-4">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        </div>
+                        <h4>Lernbereitschaft</h4>
+                        <p>Offen für neue pädagogische Ansätze</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <section class="about" id="about">
+    <div class="container">
+        <div class="about-grid">
+            <!-- النص على اليسار -->
+            <div class="about-text fade-up">
+                <span class="section-label">Über mich</span>
+                <h2 class="section-title">Eine Leidenschaft für die Arbeit mit Kindern</h2>
+                <p>
+                    Schon während meiner Schulzeit machte es mir Freude, meinen Mitschülern beim Lernen zu helfen. Ihre Fortschritte zu sehen, motivierte mich und weckte mein Interesse an der pädagogischen Arbeit. Deshalb entschied ich mich nach dem Abitur für ein Studium der Erziehungswissenschaften. Durch mein Studium, Praktika an Schulen und meine Tätigkeit in der Lernförderung wurde mir klar, dass die Arbeit mit Kindern genau zu mir passt.
+                </p>
+                <p>
+                    Heute möchte ich diesen Weg mit einer Ausbildung als Erzieherin in Deutschland fortsetzen und Kinder mit Geduld, Engagement und Freude in ihrer Entwicklung begleiten.
+                </p>
+            </div>
+
+            <!-- إطار الريل مع غلاف الصورة وأيقونة التشغيل -->
+            <div class="about-video-wrapper fade-up fade-up-delay-1">
+                <div class="reel-container" id="reelContainer" data-video-id="MRkAEIWgOdY">
+                    <!-- صورة الغلاف (يمكنك تغيير مسار الصورة) -->
+                    <img src="https://img.youtube.com/vi/MRkAEIWgOdY/maxresdefault.jpg" alt="Bewerbungsvideo Cover" class="reel-poster" id="reelPoster">
+                    
+                    <!-- زر التشغيل فوق الصورة -->
+                    <button class="play-btn" aria-label="Play Video" id="playBtn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- ============================================
+         GALLERY SECTION
+         ============================================ -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="gallery-header fade-up">
+                <span class="section-label">Eindrücke</span>
+                <h2 class="section-title">Momente aus der Praxis</h2>
+                <p class="section-subtitle">
+                    Einblicke in verschiedene pädagogische Bereiche, die meine Leidenschaft für die Arbeit mit Kindern widerspiegeln.
+                </p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-card fade-up" data-caption="Einsatz von digitalen Medien und anschaulichem Unterricht für ein motivierendes Lernumfeld.">
+                    <div class="gallery-card-image">
+                        <img src="1.jpeg" alt="Schulische Unterstützung & Medien">
+                    </div>
+                    <div class="gallery-card-content">
+                        <h4>Schulische Unterstützung & Medien</h4>
+                        <p>Einsatz von digitalen Medien und anschaulichem Unterricht für ein motivierendes Lernumfeld.</p>
+                    </div>
+                </div>
+                <div class="gallery-card fade-up fade-up-delay-1" data-caption="Ein liebevoller und vertrauensvoller Umgang, damit sich jedes Kind sicher und geborgen fühlt.">
+                    <div class="gallery-card-image">
+                        <img src="2.jpeg" alt="Vertrauen & Emotionale Bindung">
+                    </div>
+                    <div class="gallery-card-content">
+                        <h4>Vertrauen & Emotionale Bindung</h4>
+                        <p>Ein liebevoller und vertrauensvoller Umgang, damit sich jedes Kind sicher und geborgen fühlt.</p>
+                    </div>
+                </div>
+                <div class="gallery-card fade-up fade-up-delay-2" data-caption="Aktive Mitarbeit in Gruppen- und Gemeinschaftsprojekten zur Stärkung der sozialen Kompetenzen.">
+                    <div class="gallery-card-image">
+                        <img src="3.jpeg" alt="Soziales Engagement & Gemeinschaft">
+                    </div>
+                    <div class="gallery-card-content">
+                        <h4>Soziales Engagement & Gemeinschaft</h4>
+                        <p>Aktive Mitarbeit in Gruppen- und Gemeinschaftsprojekten zur Stärkung der sozialen Kompetenzen.</p>
+                    </div>
+                </div>
+                <!-- <div class="gallery-card fade-up" data-caption="Bewegung an der frischen Luft">
+                    <div class="gallery-card-image">
+                        <img src="4.jpeg" alt="Spielplatz im Freien">
+                    </div>
+                    <div class="gallery-card-content">
+                        <h4>Draußen spielen</h4>
+                        <p>Bewegungsförderung</p>
+                    </div>
+                </div> -->
+                <!-- <div class="gallery-card fade-up fade-up-delay-1" data-caption="Musik und Rhythmus entdecken">
+                    <div class="gallery-card-image">
+                        <img src="https://image.qwenlm.ai/public_source/226381ec-527f-4124-a6a8-97fdbbb6213d/14e9d0fa1-7acf-40d9-8399-7aa583e3ebea.png" alt="Kinder-Musikinstrumente">
+                    </div>
+                    <div class="gallery-card-content">
+                        <h4>Musikalische Früherziehung</h4>
+                        <p>Rhythmus und Klang</p>
+                    </div>
+                </div>
+                <div class="gallery-card fade-up fade-up-delay-2" data-caption="Gemeinsame Zeit im Morgenkreis">
+                    <div class="gallery-card-image">
+                        <img src="https://image.qwenlm.ai/public_source/226381ec-527f-4124-a6a8-97fdbbb6213d/100f2f414-4ddb-4619-877b-832f7f98d545.png" alt="Stuhlkreis im Gruppenraum">
+                    </div>
+                    <div class="gallery-card-content">
+                        <h4>Gemeinschaft erleben</h4>
+                        <p>Morgenkreis</p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         VIDEO SECTION
+         ============================================ -->
+    <!-- <section class="video" id="video">
+        <div class="container">
+            <div class="video-header fade-up">
+                <span class="section-label">Videos</span>
+                <h2 class="section-title">Einblicke in meine Arbeit</h2>
+                <p class="section-subtitle">
+                    Kurze Einblicke in pädagogische Situationen, die zeigen, wie ich mit Kindern arbeite.
+                </p>
+            </div>
+            <div class="video-grid">
+                <div class="video-card fade-up" aria-label="Video abspielen">
+                    <img src="https://image.qwenlm.ai/public_source/226381ec-527f-4124-a6a8-97fdbbb6213d/1791353df-809f-4c3c-bd3e-3b9d82cde555.png" alt="Video: Spielerisches Lernen">
+                    <div class="video-card-overlay">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                        </div>
+                    </div>
+                    <span class="video-card-label">Spielerisches Lernen</span>
+                </div>
+                <div class="video-card fade-up fade-up-delay-1" aria-label="Video abspielen">
+                    <img src="https://image.qwenlm.ai/public_source/226381ec-527f-4124-a6a8-97fdbbb6213d/100f2f414-4ddb-4619-877b-832f7f98d545.png" alt="Video: Morgenkreis">
+                    <div class="video-card-overlay">
+                        <div class="play-button">
+                            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                        </div>
+                    </div>
+                    <span class="video-card-label">Gemeinschaft im Morgenkreis</span>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <section class="video" id="video">
+    <div class="container">
+        <div class="video-header fade-up">
+            <span class="section-label">Videos</span>
+            <h2 class="section-title">Einblicke in meine Arbeit</h2>
+            <p class="section-subtitle">
+                Kurze Einblicke in pädagogische Situationen, die zeigen, wie ich mit Kindern arbeite.
+            </p>
+        </div>
+        
+        <div class="video-grid">
+            <!-- كارت 1 -->
+            <div class="video-card reel-card fade-up" data-video-type="youtube" data-video-src="VIDEO_ID_1">
+                <img src="https://image.qwenlm.ai/public_source/226381ec-527f-4124-a6a8-97fdbbb6213d/1791353df-809f-4c3c-bd3e-3b9d82cde555.png" alt="Video: Spielerisches Lernen" class="reel-poster">
+                <div class="video-card-overlay">
+                    <div class="play-button">
+                        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    </div>
+                </div>
+                <span class="video-card-label">Spielerisches Lernen</span>
+            </div>
+
+            <!-- كارت 2 -->
+            <div class="video-card reel-card fade-up fade-up-delay-1" data-video-type="youtube" data-video-src="VIDEO_ID_2">
+                <img src="https://image.qwenlm.ai/public_source/226381ec-527f-4124-a6a8-97fdbbb6213d/100f2f414-4ddb-4619-877b-832f7f98d545.png" alt="Video: Morgenkreis" class="reel-poster">
+                <div class="video-card-overlay">
+                    <div class="play-button">
+                        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    </div>
+                </div>
+                <span class="video-card-label">Gemeinschaft im Morgenkreis</span>
+            </div>
+
+            <!-- كارت 3 -->
+            <div class="video-card reel-card fade-up fade-up-delay-2" data-video-type="youtube" data-video-src="VIDEO_ID_3">
+                <img src="https://image.qwenlm.ai/public_source/226381ec-527f-4124-a6a8-97fdbbb6213d/1791353df-809f-4c3c-bd3e-3b9d82cde555.png" alt="Video: Kreatives Gestalten" class="reel-poster">
+                <div class="video-card-overlay">
+                    <div class="play-button">
+                        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    </div>
+                </div>
+                <span class="video-card-label">Kreatives Gestalten</span>
+            </div>
+
+            <!-- كارت 4 -->
+            <div class="video-card reel-card fade-up fade-up-delay-3" data-video-type="youtube" data-video-src="VIDEO_ID_4">
+                <img src="https://image.qwenlm.ai/public_source/226381ec-527f-4124-a6a8-97fdbbb6213d/100f2f414-4ddb-4619-877b-832f7f98d545.png" alt="Video: Individuelle Förderung" class="reel-poster">
+                <div class="video-card-overlay">
+                    <div class="play-button">
+                        <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    </div>
+                </div>
+                <span class="video-card-label">Individuelle Förderung</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- ============================================
+         COMPETENCIES SECTION
+         ============================================ -->
+    <section class="competencies" id="competencies">
+        <div class="container">
+            <div class="competencies-header fade-up">
+                <span class="section-label">Kompetenzen</span>
+                <h2 class="section-title">Was ich mitbringe</h2>
+                <p class="section-subtitle">
+                    Fähigkeiten und Haltungen, die ich in die Arbeit mit Kindern einbringe.
+                </p>
+            </div>
+            <div class="competencies-grid">
+                <div class="competency-card fade-up">
+                    <span class="competency-number">01</span>
+                    <h4>Kommunikation</h4>
+                    <p>Freundliche und offene Kommunikation mit Kindern, Eltern und dem Team.</p>
+                </div>
+                <div class="competency-card fade-up fade-up-delay-1">
+                    <span class="competency-number">02</span>
+                    <h4>Kreativität</h4>
+                    <p>Planung von einfachen Spiel- und Lernangeboten, die Kindern Freude machen.</p>
+                </div>
+                <div class="competency-card fade-up fade-up-delay-2">
+                    <span class="competency-number">03</span>
+                    <h4>Einfühlungsvermögen</h4>
+                    <p>Verständnis für die Bedürfnisse der Kinder und Unterstützung ihrer Entwicklung.</p>
+                </div>
+                <div class="competency-card fade-up">
+                    <span class="competency-number">04</span>
+                    <h4>Teamarbeit</h4>
+                    <p>Gute Zusammenarbeit mit dem Team sowie zuverlässiges und hilfsbereites Arbeiten.</p>
+                </div>
+                <div class="competency-card fade-up fade-up-delay-1">
+                    <span class="competency-number">05</span>
+                    <h4>Organisation</h4>
+                    <p>Strukturierte Arbeitsweise und Unterstützung bei einem gut organisierten Kita-Alltag.</p>
+                </div>
+                <div class="competency-card fade-up fade-up-delay-2">
+                    <span class="competency-number">06</span>
+                    <h4>Motivation:</h4>
+                    <p>Freude an der Arbeit mit Kindern sowie Bereitschaft, Neues zu lernen und sich weiterzuentwickeln.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MOTIVATION SECTION
+         ============================================ -->
+    <section class="motivation" id="motivation">
+        <div class="container">
+            <div class="motivation-card fade-up">
+                <div class="motivation-quote-mark">"</div>
+                <p class="motivation-text">
+                    Kinder sind keine Gefäße, die gefüllt werden müssen, sondern Feuer, die entzündet werden wollen. Ich möchte Teil dieses Entzündens sein — mit Wärme, Respekt und der Überzeugung, dass jedes Kind einzigartig ist.
+                </p>
+                <span class="motivation-author">— Meine Motivation</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT SECTION
+         ============================================ -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="fade-up">
+                    <span class="section-label">Kontakt</span>
+                    <h2 class="section-title">Lassen Sie uns ins Gespräch kommen</h2>
+                    <p class="section-subtitle">
+                        Ich freue mich über Ihre Nachricht und beantworte gerne Fragen zu meiner Bewerbung oder für ein persönliches Kennenlernen.
+                    </p>
+                    <ul class="contact-info-list">
+                        <li>
+                            <div class="contact-info-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </div>
+                            <div>
+                                <div class="contact-info-label">E-Mail</div>
+                                <div class="contact-info-value"><a href="mailto:laura.weber@email.de">khaouladahhou224@gmail.com</a></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-info-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </div>
+                            <div>
+                                <div class="contact-info-label">Telefon</div>
+                                <div class="contact-info-value"><a href="tel:+491701234567">+212 711 11 68 13</a></div>
+                            </div>
+                        </li>
+                        <!-- <li>
+                            <div class="contact-info-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                            </div>
+                            <div>
+                                <div class="contact-info-label">LinkedIn</div>
+                                <div class="contact-info-value"><a href="#" target="_blank" rel="noopener">linkedin.com/in/lauraweber</a></div>
+                            </div>
+                        </li> -->
+                    </ul>
+                </div>
+                <div class="contact-cta fade-up fade-up-delay-1">
+                    <h3>Lebenslauf herunterladen</h3>
+                    <p>
+                        Alle wichtigen Informationen zu meinem Bildungsweg, meinen Praktika und Zertifikaten im PDF-Format.
+                    </p>
+                    <a href="#" class="btn btn-primary" download>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Lebenslauf als PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <span class="footer-copy">&copy; 2026 Khaoula Dah-Hou. Alle Rechte vorbehalten.</span>
+                <ul class="footer-links">
+                    <li><a href="#">Impressum</a></li>
+                    <li><a href="#">Datenschutz</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         LIGHTBOX
+         ============================================ -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Schließen">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="" alt="">
+        </div>
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <!-- ============================================
+         SCRIPTS
+         ============================================ -->
+    <script>
+        // ============================================
+        // NAVBAR SCROLL EFFECT
+        // ============================================
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 40) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            lastScroll = currentScroll;
+        });
+
+        // ============================================
+        // MOBILE NAVIGATION TOGGLE
+        // ============================================
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+
+        // Close mobile menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // ============================================
+        // FADE-UP ANIMATIONS (IntersectionObserver)
+        // ============================================
+        const fadeElements = document.querySelectorAll('.fade-up');
+
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    fadeObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        fadeElements.forEach(el => fadeObserver.observe(el));
+
+        // ============================================
+        // LIGHTBOX
+        // ============================================
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const galleryCards = document.querySelectorAll('.gallery-card');
+
+        function openLightbox(imageSrc, caption) {
+            lightboxImage.src = imageSrc;
+            lightboxCaption.textContent = caption;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                lightboxImage.src = '';
+            }, 300);
+        }
+
+        galleryCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const imageSrc = card.querySelector('img').src;
+                const caption = card.getAttribute('data-caption') || '';
+                openLightbox(imageSrc, caption);
+            });
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+
+
+        // --------------------reel --------------------
+        document.addEventListener('DOMContentLoaded', function() {
+    const reelContainer = document.getElementById('reelContainer');
+    
+    if (reelContainer) {
+        reelContainer.addEventListener('click', function() {
+            const videoId = this.getAttribute('data-video-id');
+            
+            // إنشاء عنصر iframe وتضمين الفيديو مع خاصية التشغيل التلقائي (autoplay)
+            const iframe = document.createElement('iframe');
+            iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1&origin=${window.location.origin}`);
+            iframe.setAttribute('title', 'Bewerbungsvideo - Khaoula');
+            iframe.setAttribute('frameborder', '0');
+            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+            iframe.setAttribute('allowfullscreen', 'true');
+            
+            // إفراغ الحاوية واستبدال الصورة بالفيديو
+            this.innerHTML = '';
+            this.appendChild(iframe);
+        });
+    }
+});
+
+
+// --------------------------- 4 reels -----------------------------
+document.addEventListener('DOMContentLoaded', function() {
+    const reelCards = document.querySelectorAll('.reel-card');
+    
+    reelCards.forEach(card => {
+        card.addEventListener('click', function() {
+            // تجنب تكرار فتح المشغل إذا كان يشتغل بالفعل
+            if (this.querySelector('iframe') || this.querySelector('video')) return;
+            
+            const videoType = this.getAttribute('data-video-type');
+            const videoSrc = this.getAttribute('data-video-src');
+            
+            if (videoType === 'youtube') {
+                const iframe = document.createElement('iframe');
+                iframe.setAttribute('src', `https://www.youtube.com/embed/${videoSrc}?autoplay=1&rel=0`);
+                iframe.setAttribute('title', 'Reel Video');
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                iframe.setAttribute('allowfullscreen', 'true');
+                
+                this.appendChild(iframe);
+            } else if (videoType === 'mp4') {
+                const video = document.createElement('video');
+                video.setAttribute('src', videoSrc);
+                video.setAttribute('controls', 'true');
+                video.setAttribute('autoplay', 'true');
+                video.setAttribute('playsinline', 'true');
+                
+                this.appendChild(video);
+            }
+        });
+    });
+});
+
+    </script>
+</body>
+</html>
